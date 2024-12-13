@@ -1,11 +1,12 @@
 const pizzaPlace = "TrueSlice";
-typeof "TrueSlice";
-console.log("TrueSlice");
-let numberOfToppings = 6;
-typeof 6;
-console.log(6);
+console.log(pizzaPlace);
+console.log(typeof pizzaPlace);
+const numberOfToppings = 6;
+console.log(typeof numberOfToppings);
+console.log(numberOfToppings);
+
 if (numberOfToppings < 10) {
-  ("Quality, not quantity.");
+  console.log("Quality, not quantity.");
 } else {
-  ("A whole lot of pizza.");
+  console.log("A whole lot of pizza.");
 }
