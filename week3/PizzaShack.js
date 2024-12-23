@@ -1,39 +1,40 @@
+const Toppings = ["sausage", "pepperoni", "pineapple", "ham", "bacon"];
+
 function greetCustomer() {
   let greet = "Welcome to the Pizza Shack, our toppings are:";
-  return greet;
+  for (let Topping of Toppings) {
+    greet += `${Topping},`;
+  }
+  console.log(greet);
 }
-console.log(greetCustomer());
+greetCustomer();
 
-const Toppings = ["sausage", "pepperoni", "pineapple", "ham", "bacon"];
-for (let i in Toppings) {
-  console.log(Toppings[i]);
+function getPizzaOrder(size, crust, ...toppings) {
+  let order = `One ${size} ${crust} crust pizza with `;
+  for (let topping of toppings) {
+    order += `${topping},`;
+  }
+  order += "...coming up";
+  console.log(order);
+  return [size, crust, toppings];
 }
 
-function getPizzaOrder(size, crust) {
-  let order = [size, crust, "sausage", "bacon"];
-  return order;
-}
-console.log(`One ${"large"} ${"thin"} crust pizza with sausage and bacon.`);
-
-const preparePizza = function(order) {
-  const pizza = {
-    size: order[0],
-    crust: order[1],
-    toppings: order.slice(2)
-  };
+function preparePizza([size, crust, ...toppings]) {
   console.log("Order is being made");
-  return pizza;
-};
+  return {
+    size: size,
+    crust: crust,
+    toppings: toppings
+  };
+}
 
 function servePizza(pizza) {
-  console.log(
-    `Your ${pizza.size}, ${pizza.crust}, crust pizza with ${pizza.toppings.join(
-      " and "
-    )} is ready.`
-  );
+  let message = `Order up! Here's your ${pizza.size} ${pizza.crust} crust pizza with `;
+  for (let topping of pizza.toppings) {
+    message += `${topping},`;
+  }
+  message += "...Enjoy!";
+  console.log(message);
   return pizza;
 }
-
-const pizzaOrder = getPizzaOrder("large", "thin");
-const pizza = preparePizza(pizzaOrder);
-servePizza(pizza);
+servePizza(preparePizza(getPizzaOrder("large", "thin", "ham", "sausage")));
