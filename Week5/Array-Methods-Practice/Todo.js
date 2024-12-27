@@ -1,4 +1,4 @@
-const taskList = [
+const data = [
   {
     userId: 1,
     id: 1,
@@ -303,4 +303,8 @@ const taskList = [
   }
 ];
 
-const user
+const user3Tasks = data.filter(task => task.userId == 2);
+console.log(user3Tasks);
+
+const user3CompletedTasks = user3Tasks.filter(task => task.completed == false);
+console.log(user3CompletedTasks);
