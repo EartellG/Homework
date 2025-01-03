@@ -1,4 +1,4 @@
-[
+const data = [
   {
     userId: 1,
     id: 1,
@@ -355,3 +355,10 @@
       "error suscipit maxime adipisci consequuntur recusandae\nvoluptas eligendi et est et voluptates\nquia distinctio ab amet quaerat molestiae et vitae\nadipisci impedit sequi nesciunt quis consectetur"
   }
 ];
+
+const titles = data.map(userObj => userObj.title);
+console.log(titles);
+
+const pairs = data.map(
+  userObj => `${userObj.title} ${userObj => userObj.body}`
+);
