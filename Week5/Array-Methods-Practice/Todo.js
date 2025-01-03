@@ -1,3 +1,5 @@
+const { title } = require("process");
+
 const data = [
   {
     userId: 1,
@@ -303,8 +305,8 @@ const data = [
   }
 ];
 
-const user3Tasks = data.filter(task => task.userId == 2);
-console.log(user3Tasks);
+const user3IncompleteTasks = data.filter(task => task.completed != true);
+console.log(user3IncompleteTasks);
 
-const user3CompletedTasks = user3Tasks.filter(task => task.completed == false);
-console.log(user3CompletedTasks);
+const user3Task = data.filter(task => task.userId == 3);
+console.log(user3Task);
